@@ -2,10 +2,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
-    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
-    <PublishSingleFile>true</PublishSingleFile>
-    <PublishTrimmed>true</PublishTrimmed>
   </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="Assets\Fonts\" />
     <Folder Include="Assets\Themes\" />
@@ -19,49 +17,11 @@
     <AvaloniaResource Include="Assets\*" />
     <AvaloniaResource Include="Assets\Fonts\*" />
   </ItemGroup>
-  <ItemGroup>
-    <AvaloniaResource Remove="Views\Data\CommandsView.xaml" />
-    <AvaloniaResource Remove="Views\MenuView.xaml" />
-    <AvaloniaResource Remove="Views\Modal\AboutView.xaml" />
-    <AvaloniaResource Remove="Views\Modal\SetupMenuView.xaml" />
-    <AvaloniaResource Remove="Views\StatusBarView.xaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Views\Data\CommandsView.xaml" />
-    <None Remove="Views\MenuView.xaml" />
-    <None Remove="Views\Modal\AboutView.xaml" />
-    <None Remove="Views\Modal\SetupMenuView.xaml" />
-    <None Remove="Views\StatusBarView.xaml" />
-  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.9.0" />
     <PackageReference Include="Avalonia.Desktop" Version="0.9.0" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\StatusBarView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MenuView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Modal\AboutView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Data\CommandsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Modal\SetupMenuView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 
 
@@ -69,10 +29,4 @@
     <ProjectReference Include="..\CANShark.Services\CANShark.Services.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <None Update="Assets\Themes\DefaultTheme.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-  </ItemGroup>
 </Project>
