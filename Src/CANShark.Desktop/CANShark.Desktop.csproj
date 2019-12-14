@@ -8,6 +8,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Assets\Fonts\" />
+    <Folder Include="Assets\Themes\" />
     <Folder Include="Models\" />
     <Compile Update="**\*.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
@@ -62,7 +63,16 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
+
+
   <ItemGroup>
     <ProjectReference Include="..\CANShark.Services\CANShark.Services.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="Assets\Themes\DefaultTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>

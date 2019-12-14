@@ -1,0 +1,50 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:sys="clr-namespace:System;assembly=netstandard">
+
+  <!--Global colors-->
+
+  <Style>
+    <Style.Resources>
+      <Color x:Key="ThemeBorderColor1">#e5e5e5</Color>
+
+      <SolidColorBrush x:Key="ThemeBorderBrush1" Color="{DynamicResource ThemeBorderColor1}"/>
+    </Style.Resources>
+  </Style>
+
+  <!--Modal window styles-->
+
+  <Style Selector="Grid.Modal">
+    <Setter Property="ZIndex" Value="1000"/>
+  </Style>
+
+  <Style Selector="Border.ModalBackground">
+    <Setter Property="Background" Value="Gray"/>
+    <Setter Property="Opacity" Value="0.8"/>
+    <Style.Animations>
+      <Animation Duration="0:0:0.6" >
+        <KeyFrame Cue="0%">
+          <Setter Property="Opacity" Value="1.0"/>
+        </KeyFrame>
+        <KeyFrame Cue="100%">
+          <Setter Property="Opacity" Value="0.8"/>
+        </KeyFrame>
+      </Animation>
+    </Style.Animations>
+  </Style>
+
+  <Style Selector="Border.ModalContent">
+    <Setter Property="Background" Value="White"/>
+    <Style.Animations>
+      <Animation Duration="0:0:0.8">
+        <KeyFrame Cue="0%">
+          <Setter Property="Opacity" Value="0.0"/>
+        </KeyFrame>
+        <KeyFrame Cue="100%">
+          <Setter Property="Opacity" Value="1.0"/>
+        </KeyFrame>
+      </Animation>
+    </Style.Animations>
+  </Style>
+
+</Styles>
