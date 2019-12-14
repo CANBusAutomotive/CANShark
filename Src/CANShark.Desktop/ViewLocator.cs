@@ -1,7 +1,7 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using CANShark.Desktop.ViewModels;
+using CANShark.Desktop.ViewModels.Core;
 
 namespace CANShark.Desktop
 {

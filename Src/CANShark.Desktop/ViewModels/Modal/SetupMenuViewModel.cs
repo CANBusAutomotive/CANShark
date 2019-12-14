@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CANShark.Desktop.ViewModels.Core;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

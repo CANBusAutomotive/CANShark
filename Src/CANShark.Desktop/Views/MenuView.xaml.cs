@@ -1,10 +1,9 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia.Markup.Xaml;
+using CANShark.Desktop.Views.Core;
 
 namespace CANShark.Desktop.Views
 {
-    public class MenuView : UserControl
+    public class MenuView : BaseControl
     {
         public MenuView()
         {

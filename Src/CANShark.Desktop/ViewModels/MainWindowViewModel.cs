@@ -1,4 +1,5 @@
-﻿using CANShark.Desktop.ViewModels.Data;
+﻿using CANShark.Desktop.ViewModels.Core;
+using CANShark.Desktop.ViewModels.Data;
 using CANShark.Desktop.ViewModels.Modal;
 using ReactiveUI;
 using System.Reactive;
@@ -7,9 +8,6 @@ namespace CANShark.Desktop.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private ViewModelBase _content;
-        private ViewModelBase _modal;
-
         public MainWindowViewModel()
         {
             Content = new CommandsViewModel();
@@ -25,17 +23,9 @@ namespace CANShark.Desktop.ViewModels
             });
         }
 
-        public ViewModelBase Content
-        {
-            get => _content;
-            private set => this.RaiseAndSetIfChanged(ref _content, value);
-        }
+        public ViewModelBase Content { get; set; }
 
-        public ViewModelBase Modal
-        {
-            get => _modal;
-            private set => this.RaiseAndSetIfChanged(ref _modal, value);
-        }
+        public ViewModelBase Modal { get; set; }
 
         public ReactiveCommand<Unit, Unit> ShowAboutModal { get; }
 

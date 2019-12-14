@@ -1,10 +1,9 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia.Markup.Xaml;
+using CANShark.Desktop.Views.Core;
 
 namespace CANShark.Desktop.Views.Modal
 {
-    public class AboutView : UserControl
+    public class AboutView : BaseControl
     {
         public AboutView()
         {
