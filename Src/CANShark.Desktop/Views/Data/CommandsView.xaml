@@ -7,16 +7,17 @@
              d:DesignHeight="450"
              x:Class="CANShark.Desktop.Views.Data.CommandsView">
 
-  <Grid RowDefinitions="35, *" ZIndex="0">
-    <Border Grid.Row="0">
+  <Grid RowDefinitions="Auto, *" ZIndex="0">
+    <Border Grid.Row="0" Margin="5, 10">
       <Grid ColumnDefinitions="*, 50">
-        <TextBox Grid.Column="0"/>
+        <TextBox Classes="CommandSearchBox" Watermark="Search" Grid.Column="0"/>
         <Button Grid.Column="1"
-                Content="1"
-                Command="{Binding $parent[Window].DataContext.ShowAboutModal}"/>
+                Content="[  ]"
+                FontWeight="Bold"
+                Command="{Binding $parent[Window].DataContext.ShowSetupMenuModal}"/>
       </Grid>
     </Border>
-    <ListBox Grid.Row="1">
+    <ListBox Grid.Row="1" Classes="CommandList">
       <ListBoxItem Content="DDDDDDD"/>
       <ListBoxItem Content="DDDDDDD"/>
       <ListBoxItem Content="DDDDDDD"/>

@@ -17,10 +17,16 @@ namespace CANShark.Desktop.ViewModels
                 Modal = new AboutViewModel();
             });
 
+            ShowSetupMenuModal = ReactiveCommand.Create(() =>
+            {
+                Modal = new SetupMenuViewModel();
+            });
+
             CloseModal = ReactiveCommand.Create(() =>
             {
                 Modal = null;
             });
+
         }
 
         public ViewModelBase Content { get; set; }
@@ -28,6 +34,8 @@ namespace CANShark.Desktop.ViewModels
         public ViewModelBase Modal { get; set; }
 
         public ReactiveCommand<Unit, Unit> ShowAboutModal { get; }
+
+        public ReactiveCommand<Unit, Unit> ShowSetupMenuModal { get; }
 
         public ReactiveCommand<Unit, Unit> CloseModal { get; }
     }

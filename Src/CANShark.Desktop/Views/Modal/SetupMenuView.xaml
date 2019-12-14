@@ -13,16 +13,52 @@
             Width="300"
             HorizontalAlignment="Right"
             CornerRadius="0">
-      <Grid RowDefinitions="*, Auto">
-        <TextBlock Text="CANShark"
-                   FontWeight="Bold"
-                   FontSize="26"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
-        <Button Grid.Row="1"
-                Content="OK" Margin="10"
-                Width="70"
-                Command="{Binding $parent[Window].DataContext.CloseModal}"/>
+      <Grid RowDefinitions="*, Auto" Margin="10">
+
+        <Grid Grid.Row="0" RowDefinitions="35,*">
+          <TextBlock Classes="h1" Text="Settings"/>
+
+          <StackPanel Grid.Row="1"
+                      Orientation="Vertical"
+                      Spacing="10">
+            <TextBlock Classes="h2 Blue" Text="Device:"/>
+
+            <StackPanel Orientation="Vertical">
+              <TextBlock Classes="h3 Gray" Text="Device type"/>
+              <TextBox Text="LAWICEL" IsEnabled="False" Background="LightGray"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+              <TextBlock Classes="h3 Gray" Text="Port"/>
+              <TextBox/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+              <TextBlock Classes="h3 Gray" Text="Baud"/>
+              <TextBox/>
+            </StackPanel>
+
+            <TextBlock Classes="h2 Blue" Text="Wireshark:"/>
+
+            <StackPanel Orientation="Vertical">
+              <TextBlock Classes="h3 Gray" Text="Path"/>
+              <TextBox/>
+            </StackPanel>
+
+          </StackPanel>
+        </Grid>
+
+        <Grid ColumnDefinitions="Auto, *" Grid.Row="1">
+          <Button Grid.Column="0"
+               Content="Close" Margin="10"
+               Width="70"
+               Command="{Binding $parent[Window].DataContext.CloseModal}"/>
+
+          <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+            <TextBlock Text="CANShart" FontSize="14" FontWeight="Bold" Foreground="Gray"/>
+            <TextBlock Text="Version: xxx" Foreground="Gray"/>
+          </StackPanel>
+        </Grid>
+
+
       </Grid>
     </Border>
   </Grid>
