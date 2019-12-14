@@ -2,6 +2,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>true</PublishTrimmed>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Assets\Fonts\" />
@@ -16,13 +19,17 @@
     <AvaloniaResource Include="Assets\Fonts\*" />
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaResource Remove="Views\Data\CommandsView.xaml" />
     <AvaloniaResource Remove="Views\MenuView.xaml" />
     <AvaloniaResource Remove="Views\Modal\AboutView.xaml" />
+    <AvaloniaResource Remove="Views\Modal\SetupMenuView.xaml" />
     <AvaloniaResource Remove="Views\StatusBarView.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Views\Data\CommandsView.xaml" />
     <None Remove="Views\MenuView.xaml" />
     <None Remove="Views\Modal\AboutView.xaml" />
+    <None Remove="Views\Modal\SetupMenuView.xaml" />
     <None Remove="Views\StatusBarView.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Modal\AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Data\CommandsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Modal\SetupMenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

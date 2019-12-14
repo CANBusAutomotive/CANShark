@@ -1,4 +1,5 @@
-﻿using CANShark.Desktop.ViewModels.Modal;
+﻿using CANShark.Desktop.ViewModels.Data;
+using CANShark.Desktop.ViewModels.Modal;
 using ReactiveUI;
 using System.Reactive;
 
@@ -11,9 +12,16 @@ namespace CANShark.Desktop.ViewModels
 
         public MainWindowViewModel()
         {
+            Content = new CommandsViewModel();
+
             ShowAboutModal = ReactiveCommand.Create(() =>
             {
                 Modal = new AboutViewModel();
+            });
+
+            CloseModal = ReactiveCommand.Create(() =>
+            {
+                Modal = null;
             });
         }
 
@@ -30,5 +38,7 @@ namespace CANShark.Desktop.ViewModels
         }
 
         public ReactiveCommand<Unit, Unit> ShowAboutModal { get; }
+
+        public ReactiveCommand<Unit, Unit> CloseModal { get; }
     }
 }
