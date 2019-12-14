@@ -1,17 +1,45 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:CANShark.Desktop.ViewModels;assembly=CANShark.Desktop"
+        xmlns:view="clr-namespace:CANShark.Desktop.Views;assembly=CANShark.Desktop"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="800"
+        Width="600"
+        Height="700"
         x:Class="CANShark.Desktop.Views.MainWindow"
+        xmlns:local="clr-namespace:CANShark.Desktop"
+        FontFamily="avares://CANShark.Desktop/Assets/Fonts#Open Sans"
         Icon="/Assets/avalonia-logo.ico"
         Title="CANShark.Desktop">
 
-    <Design.DataContext>
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+  <Grid RowDefinitions="20,*,20">
+    <view:MenuView Grid.Row="0"/>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Command="{Binding ShowAboutModal}" NotificationCard.CloseOnClick="True">Open</Button>
+
+    <ListBox Grid.Row="1" Margin="-5 0">
+      <ListBoxItem>SSDSDSd</ListBoxItem>
+      <ListBoxItem>SSDSDSd</ListBoxItem>
+      <ListBoxItem>SSDSDSd</ListBoxItem>
+      <ListBoxItem>SSDSDSd</ListBoxItem>
+      <ListBoxItem>SSDSDSd</ListBoxItem>
+      <ListBoxItem>SSDSDSd</ListBoxItem>
+    </ListBox>
+
+    <ContentControl Grid.Row="1" Content="{Binding Modal}">
+      <ContentControl.DataTemplates>
+        <local:ViewLocator/>
+      </ContentControl.DataTemplates>
+    </ContentControl>
+
+    <ContentControl Grid.Row="1" Content="{Binding Content}">
+      <ContentControl.DataTemplates>
+        <local:ViewLocator/>
+      </ContentControl.DataTemplates>
+    </ContentControl>
+
+    <view:StatusBarView Grid.Row="2"/>
+  </Grid>
 
 </Window>

@@ -1,0 +1,44 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CANShark.Desktop.Views.Modal.AboutView">
+  <Grid>
+    <Border Classes="ModalBackground" Background="Gray" Opacity="0.8"/>
+    <Border Classes="ModalContent" Width="300" HorizontalAlignment="Right" Background="White" CornerRadius="0">
+      <Grid RowDefinitions="*, Auto">
+        <TextBlock Text="CANShark" FontWeight="Bold" FontSize="26" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <Button Grid.Row="1" Content="Ok" Margin="10" Width="70" Command="{Binding $parent[Window].DataContext.ShowAboutModal}"/>
+      </Grid>
+    </Border>
+  </Grid>
+
+  <UserControl.Styles>
+    <Style Selector="Border.ModalBackground">
+      <Style.Animations>
+        <Animation Duration="0:0:0.6" >
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="1.0"/>
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="0.8"/>
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+
+    <Style Selector="Border.ModalContent">
+      <Style.Animations>
+        <Animation Duration="0:0:0.8">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0.0"/>
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1.0"/>
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+  </UserControl.Styles>
+</UserControl>
