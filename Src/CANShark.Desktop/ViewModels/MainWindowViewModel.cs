@@ -8,25 +8,36 @@ namespace CANShark.Desktop.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public MainWindowViewModel()
+        private readonly SetupMenuViewModel _setupMenuViewModel;
+        private readonly AboutViewModel _aboutViewModel;
+        private readonly CommandsViewModel _commandsViewModel;
+
+        public MainWindowViewModel(
+            SetupMenuViewModel setupMenuViewModel,
+            AboutViewModel aboutViewModel,
+            CommandsViewModel commandsViewModel)
         {
-            Content = new CommandsViewModel();
+            _setupMenuViewModel = setupMenuViewModel;
+            _aboutViewModel = aboutViewModel;
+            _commandsViewModel = commandsViewModel;
+
+
+            Content = _commandsViewModel;
 
             ShowAboutModal = ReactiveCommand.Create(() =>
             {
-                Modal = new AboutViewModel();
+                Modal = _aboutViewModel;
             });
 
             ShowSetupMenuModal = ReactiveCommand.Create(() =>
             {
-                Modal = new SetupMenuViewModel();
+                Modal = _setupMenuViewModel;
             });
 
             CloseModal = ReactiveCommand.Create(() =>
             {
                 Modal = null;
             });
-
         }
 
         public ViewModelBase Content { get; set; }
