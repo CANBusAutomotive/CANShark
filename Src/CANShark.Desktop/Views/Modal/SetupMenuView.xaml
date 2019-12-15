@@ -57,8 +57,6 @@
             <TextBlock Text="Version: xxx" Foreground="Gray"/>
           </StackPanel>
         </Grid>
-
-
       </Grid>
     </Border>
   </Grid>

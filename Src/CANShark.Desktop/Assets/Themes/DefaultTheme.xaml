@@ -52,14 +52,14 @@
 
   <Style Selector="Border.ModalBackground">
     <Setter Property="Background" Value="Gray"/>
-    <Setter Property="Opacity" Value="0.8"/>
+    <Setter Property="Opacity" Value="0"/>
     <Style.Animations>
-      <Animation Duration="0:0:0.6" >
+      <Animation Duration="0:0:0.3" FillMode="Forward">
         <KeyFrame Cue="0%">
-          <Setter Property="Opacity" Value="1.0"/>
+          <Setter Property="Opacity" Value="0"/>
         </KeyFrame>
         <KeyFrame Cue="100%">
-          <Setter Property="Opacity" Value="0.8"/>
+          <Setter Property="Opacity" Value="0.5"/>
         </KeyFrame>
       </Animation>
     </Style.Animations>
@@ -67,8 +67,9 @@
 
   <Style Selector="Border.ModalContent">
     <Setter Property="Background" Value="White"/>
+    <Setter Property="Opacity" Value="0"/>
     <Style.Animations>
-      <Animation Duration="0:0:0.8">
+      <Animation Duration="0:0:0.5" FillMode="Forward">
         <KeyFrame Cue="0%">
           <Setter Property="Opacity" Value="0.0"/>
         </KeyFrame>
