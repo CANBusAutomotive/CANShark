@@ -9,10 +9,25 @@
 
   <Grid RowDefinitions="Auto, *" ZIndex="0">
     <Border Grid.Row="0" Margin="5, 10">
-      <Grid ColumnDefinitions="*, 35">
-        <TextBox Classes="CommandSearchBox" Watermark="Search" Grid.Column="0"/>
+      <Grid ColumnDefinitions="Auto, *, 35">
+        <StackPanel Orientation="Horizontal" Spacing="5">
+          <Button Classes="ToolButton">
+            <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSImageLib.AddDockerSupport_16x}" />
+          </Button>
+          <Border BorderThickness="1" BorderBrush="LightGray" Width="1"/>
+          <Button Classes="ToolButton">
+            <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSImageLib.ProjectFolderOpen_16x}" />
+          </Button>
+          <Button Classes="ToolButton">
+            <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSImageLib.AddFile_16x}" />
+          </Button>
+          <Button Classes="ToolButton">
+            <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSImageLib.SaveAll_16x}" />
+          </Button>
+        </StackPanel>
+        <TextBox Grid.Column="1" Classes="CommandSearchBox" Watermark="Search"/>
         <Button Classes="BurgerButton"
-                Grid.Column="1"
+                Grid.Column="2"
                 FontWeight="Bold"
                 Command="{Binding $parent[Window].DataContext.ShowSetupMenuModal}">
           <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSCodeLight.settings}" />

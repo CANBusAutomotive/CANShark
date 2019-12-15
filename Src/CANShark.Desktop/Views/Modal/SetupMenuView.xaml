@@ -46,10 +46,20 @@
               <TextBlock Classes="h3 Gray" Text="Port"/>
               <TextBox/>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
-              <TextBlock Classes="h3 Gray" Text="Baud"/>
-              <TextBox/>
-            </StackPanel>
+
+            <TabControl>
+              <TabItem Header="Channel 1">
+                <StackPanel Orientation="Vertical">
+                  <TextBlock Classes="h3 Gray" Text="Baud"/>
+                  <TextBox/>
+                </StackPanel>
+              </TabItem>
+              <TabItem Header="Channel 2">
+                <TextBlock Text="None"/>
+              </TabItem>
+            </TabControl>
+
+
 
             <TextBlock Classes="h2 Blue" Text="Wireshark:"/>
 
