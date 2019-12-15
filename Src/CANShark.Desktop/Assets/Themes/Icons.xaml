@@ -1,0 +1,22 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=netstandard">
+
+  <Style>
+    <Style.Resources>
+      <GeometryDrawing x:Key="FontAwesome.BuromobelexperteBrands" Brush="#FF000000" Geometry="M0 32v128h128V32H0zm120 120H8V40h112v112zm40-120v128h128V32H160zm120 120H168V40h112v112zm40-120v128h128V32H320zm120 120H328V40h112v112zM0 192v128h128V192H0zm120 120H8V200h112v112zm40-120v128h128V192H160zm120 120H168V200h112v112zm40-120v128h128V192H320zm120 120H328V200h112v112zM0 352v128h128V352H0zm120 120H8V360h112v112zm40-120v128h128V352H160zm120 120H168V360h112v112zm40-120v128h128V352H320z"   />
+      <GeometryDrawing x:Key="VSCodeLight.settings" Brush="#424242" Geometry="M3.5 2H2.5V7H3.5V2ZM9.6 7H6.4L6 6.45V5.45L6.4 5H9.6L10 5.5V6.5L9.6 7ZM4.6 10H1.4L1 9.5V8.5L1.4 8H4.6L5 8.5V9.5L4.6 10ZM8.5 2H7.5V4H8.5V2ZM7.5 8H8.5V14H7.5V8ZM3.5 11H2.5V14H3.5V11ZM11.4 11H14.59L14.99 10.5V9.55005L14.59 9.05005H11.4L11 9.55005V10.5L11.4 11ZM13.5 2H12.5V8H13.5V2ZM12.5 12H13.5V14H12.5V12Z"   />
+      <DrawingGroup x:Key="VSImageLib.Close_16x"  >
+        <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
+        <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M8.0001,5.1721L3.4571,0.6291 0.629099999999999,3.4571 5.1721,8.0001 0.629099999999999,12.5431 3.4571,15.3711 8.0001,10.8281 12.5431,15.3711 15.3711,12.5431 10.8281,8.0001 15.3711,3.4571 12.5431,0.6291z" />
+        <GeometryDrawing Brush="#FF424242" Geometry="F1M9.4141,8L13.9571,12.543 12.5431,13.957 8.0001,9.414 3.4571,13.957 2.0431,12.543 6.5861,8 2.0431,3.457 3.4571,2.043 8.0001,6.586 12.5431,2.043 13.9571,3.457z" />
+      </DrawingGroup>
+      <DrawingGroup x:Key="VSImageLib.Folder_16xMD"  >
+        <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M15,14L15,4 10.618,4 9.618,2 1,2 1,14z" />
+        <GeometryDrawing Brush="#FFDBB679" Geometry="F1M8,4L8.5,5 3,5 3,4z M2,3L2,13 14,13 14,5 10,5 9,3z" />
+        <GeometryDrawing Brush="#FFEFEFF0" Geometry="F1M2.9997,4.0003L2.9997,5.0003 8.4997,5.0003 7.9997,4.0003z" />
+      </DrawingGroup>
+    </Style.Resources>
+  </Style>
+
+</Styles>

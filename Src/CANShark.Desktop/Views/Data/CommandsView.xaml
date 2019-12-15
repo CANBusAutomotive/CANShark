@@ -9,12 +9,14 @@
 
   <Grid RowDefinitions="Auto, *" ZIndex="0">
     <Border Grid.Row="0" Margin="5, 10">
-      <Grid ColumnDefinitions="*, 50">
+      <Grid ColumnDefinitions="*, 35">
         <TextBox Classes="CommandSearchBox" Watermark="Search" Grid.Column="0"/>
-        <Button Grid.Column="1"
-                Content="[  ]"
+        <Button Classes="BurgerButton"
+                Grid.Column="1"
                 FontWeight="Bold"
-                Command="{Binding $parent[Window].DataContext.ShowSetupMenuModal}"/>
+                Command="{Binding $parent[Window].DataContext.ShowSetupMenuModal}">
+          <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSCodeLight.settings}" />
+        </Button>
       </Grid>
     </Border>
     <ListBox Grid.Row="1" Classes="CommandList">
