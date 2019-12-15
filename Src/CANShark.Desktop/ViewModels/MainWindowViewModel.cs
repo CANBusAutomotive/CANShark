@@ -2,21 +2,25 @@
 using CANShark.Desktop.ViewModels.Data;
 using CANShark.Desktop.ViewModels.Modal;
 using ReactiveUI;
+using Serilog;
 using System.Reactive;
 
 namespace CANShark.Desktop.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        private readonly ILogger _logger;
         private readonly SetupMenuViewModel _setupMenuViewModel;
         private readonly AboutViewModel _aboutViewModel;
         private readonly CommandsViewModel _commandsViewModel;
 
         public MainWindowViewModel(
+            ILogger logger,
             SetupMenuViewModel setupMenuViewModel,
             AboutViewModel aboutViewModel,
             CommandsViewModel commandsViewModel)
         {
+            _logger = logger;
             _setupMenuViewModel = setupMenuViewModel;
             _aboutViewModel = aboutViewModel;
             _commandsViewModel = commandsViewModel;
@@ -31,6 +35,7 @@ namespace CANShark.Desktop.ViewModels
 
             ShowSetupMenuModal = ReactiveCommand.Create(() =>
             {
+                _logger.Information("Setup window");
                 Modal = _setupMenuViewModel;
             });
 
