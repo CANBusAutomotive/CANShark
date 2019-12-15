@@ -1,12 +1,11 @@
 ﻿using CANShark.Desktop.ViewModels.Core;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CANShark.Desktop.ViewModels.Modal
 {
     public class SetupMenuViewModel : ViewModelBase
     {
+        public string SerialPort { get; set; }
 
+        public string BaudRate { get; set; }
     }
 }

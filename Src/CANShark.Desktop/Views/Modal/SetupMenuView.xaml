@@ -16,10 +16,18 @@
       <Grid RowDefinitions="*, Auto" Margin="10">
 
         <Grid Grid.Row="0" RowDefinitions="35,*">
-          <Grid ColumnDefinitions="*,Auto">
+          <Grid ColumnDefinitions="*,Auto,30,Auto">
             <TextBlock Classes="h1" Text="Settings"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10">
+              <Button Classes="ToolButton">
+                <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSImageLib.ConnectFilled_16x}" />
+              </Button>
+              <Button Classes="ToolButton">
+                <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSCodeLight.debug-disconnect}" />
+              </Button>
+            </StackPanel>
             <Button Classes="CloseButton"
-                    Grid.Column="1"
+                    Grid.Column="3"
                     Command="{Binding $parent[Window].DataContext.CloseModal}">
               <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Close_16x}" />
             </Button>
