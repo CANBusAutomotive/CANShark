@@ -19,12 +19,14 @@
           <Grid ColumnDefinitions="*,Auto,30,Auto">
             <TextBlock Classes="h1" Text="Settings"/>
             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10">
+              <Border BorderThickness="1" BorderBrush="LightGray" Width="1"/>
               <Button Classes="ToolButton">
                 <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSImageLib.ConnectFilled_16x}" />
               </Button>
               <Button Classes="ToolButton">
                 <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSCodeLight.debug-disconnect}" />
               </Button>
+              <Border BorderThickness="1" BorderBrush="LightGray" Width="1"/>
             </StackPanel>
             <Button Classes="CloseButton"
                     Grid.Column="3"
