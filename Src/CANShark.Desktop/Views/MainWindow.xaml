@@ -30,6 +30,12 @@
       </ContentControl.DataTemplates>
     </ContentControl>
 
+    <ContentControl Grid.Row="0" Grid.RowSpan="3" Content="{Binding Notification.Content}">
+      <ContentControl.DataTemplates>
+        <local:ViewLocator/>
+      </ContentControl.DataTemplates>
+    </ContentControl>
+
     <view:StatusBarView Grid.Row="2"/>
   </Grid>
 

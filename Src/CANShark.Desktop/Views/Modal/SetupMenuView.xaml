@@ -49,7 +49,7 @@
               <TextBlock Classes="h3 Gray" Text="Path"/>
               <Grid ColumnDefinitions="*,Auto">
                 <TextBox/>
-                <Button Grid.Column="1" Classes="ToolButton">
+                <Button Grid.Column="1" Classes="ToolButton" Command="{Binding $parent[Window].DataContext.TestExceptionCmd}">
                   <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Folder_16xMD}" />
                 </Button>
               </Grid>

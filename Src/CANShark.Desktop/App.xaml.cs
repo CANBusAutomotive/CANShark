@@ -5,6 +5,7 @@ using CANShark.Desktop.Utils;
 using CANShark.Desktop.ViewModels;
 using CANShark.Desktop.ViewModels.Data;
 using CANShark.Desktop.ViewModels.Modal;
+using CANShark.Desktop.ViewModels.Notification;
 using CANShark.Desktop.Views;
 using Microsoft.Extensions.DependencyInjection;
 using PropertyChanged;
@@ -44,10 +45,11 @@ namespace CANShark.Desktop
             services.AddSingleton<CommandsViewModel>();
             services.AddSingleton<AboutViewModel>();
             services.AddSingleton<SetupMenuViewModel>();
+            services.AddSingleton<NotificationViewModel>();
 
             // Register utils
             services.AddSingleton<AppSuspendDriver>();
-            services.AddSingleton<AppExceptionHandler>();
+            services.AddTransient<AppExceptionHandler>();
 
             // Register services
             services.AddSingleton(ConfigoreLogging());

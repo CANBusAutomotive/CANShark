@@ -1,18 +1,20 @@
-﻿using Serilog;
+﻿using CANShark.Desktop.ViewModels.Notification;
+using Serilog;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CANShark.Desktop.Utils
 {
     public class AppExceptionHandler : IObserver<Exception>
     {
         private readonly ILogger _logger;
+        private readonly NotificationViewModel _notificationViewModel;
 
         public AppExceptionHandler(
-            ILogger logger)
+            ILogger logger,
+            NotificationViewModel notificationViewModel)
         {
             _logger = logger;
+            _notificationViewModel = notificationViewModel;
         }
 
         public void OnCompleted()
@@ -27,6 +29,7 @@ namespace CANShark.Desktop.Utils
 
         public void OnNext(Exception value)
         {
+            _notificationViewModel.ShowError("Unhandled error", value.Message);
             _logger.Error(value, value.Message);
         }
     }

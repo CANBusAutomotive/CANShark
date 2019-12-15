@@ -120,7 +120,7 @@
   <!--Modal window styles-->
 
   <Style Selector="Grid.Modal">
-    <Setter Property="ZIndex" Value="1000"/>
+    <Setter Property="ZIndex" Value="100"/>
   </Style>
 
   <Style Selector="Border.ModalBackground">

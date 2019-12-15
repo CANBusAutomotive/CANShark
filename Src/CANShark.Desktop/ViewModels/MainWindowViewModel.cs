@@ -1,6 +1,7 @@
 ﻿using CANShark.Desktop.ViewModels.Core;
 using CANShark.Desktop.ViewModels.Data;
 using CANShark.Desktop.ViewModels.Modal;
+using CANShark.Desktop.ViewModels.Notification;
 using ReactiveUI;
 using Serilog;
 using System.Reactive;
@@ -16,6 +17,7 @@ namespace CANShark.Desktop.ViewModels
 
         public MainWindowViewModel(
             ILogger logger,
+            NotificationViewModel notificationViewModel,
             SetupMenuViewModel setupMenuViewModel,
             AboutViewModel aboutViewModel,
             CommandsViewModel commandsViewModel)
@@ -24,7 +26,7 @@ namespace CANShark.Desktop.ViewModels
             _setupMenuViewModel = setupMenuViewModel;
             _aboutViewModel = aboutViewModel;
             _commandsViewModel = commandsViewModel;
-
+            Notification = notificationViewModel;
 
             Content = _commandsViewModel;
 
@@ -48,6 +50,8 @@ namespace CANShark.Desktop.ViewModels
         public ViewModelBase Content { get; set; }
 
         public ViewModelBase Modal { get; set; }
+
+        public NotificationViewModel Notification { get; set; }
 
         public ReactiveCommand<Unit, Unit> ShowAboutModal { get; }
 
