@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Markup.Xaml;
 using Avalonia.ReactiveUI;
+using CANShark.Desktop.Infrastructure.Dialogs;
 using CANShark.Desktop.Utils;
 using CANShark.Desktop.ViewModels;
 using CANShark.Desktop.ViewModels.Data;
@@ -50,6 +51,7 @@ namespace CANShark.Desktop
             // Register utils
             services.AddSingleton<AppSuspendDriver>();
             services.AddTransient<AppExceptionHandler>();
+            services.AddTransient<IDialogManager, NativeDialogManager>();
 
             // Register services
             services.AddSingleton(ConfigoreLogging());

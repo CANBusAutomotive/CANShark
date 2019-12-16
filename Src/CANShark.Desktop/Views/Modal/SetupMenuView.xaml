@@ -1,45 +1,27 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             d:DesignWidth="800"
-             d:DesignHeight="450"
-             x:Class="CANShark.Desktop.Views.Modal.SetupMenuView">
-
+﻿<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" x:Class="CANShark.Desktop.Views.Modal.SetupMenuView">
   <Grid Classes="Modal">
-    <Border Classes="ModalBackground" />
-    <Border Classes="ModalContent"
-            Width="300"
-            HorizontalAlignment="Right"
-            CornerRadius="0">
+    <Border Classes="ModalBackground"/>
+    <Border Classes="ModalContent" Width="300" HorizontalAlignment="Right" CornerRadius="0">
       <Grid RowDefinitions="*, Auto" Margin="10">
-
         <Grid Grid.Row="0" RowDefinitions="35,*">
           <Grid ColumnDefinitions="*,Auto,30,Auto">
             <TextBlock Classes="h1" Text="Settings"/>
             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10">
               <Border BorderThickness="1" BorderBrush="LightGray" Width="1"/>
               <Button Classes="ToolButton">
-                <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSImageLib.ConnectFilled_16x}" />
+                <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSImageLib.ConnectFilled_16x}"/>
               </Button>
               <Button Classes="ToolButton">
-                <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSCodeLight.debug-disconnect}" />
+                <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSCodeLight.debug-disconnect}"/>
               </Button>
               <Border BorderThickness="1" BorderBrush="LightGray" Width="1"/>
             </StackPanel>
-            <Button Classes="CloseButton"
-                    Grid.Column="3"
-                    Command="{Binding $parent[Window].DataContext.CloseModal}">
-              <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Close_16x}" />
+            <Button Classes="CloseButton" Grid.Column="3" Command="{Binding $parent[Window].DataContext.CloseModal}">
+              <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Close_16x}"/>
             </Button>
           </Grid>
-
-          <StackPanel Grid.Row="1"
-                      Orientation="Vertical"
-                      Spacing="10">
+          <StackPanel Grid.Row="1" Orientation="Vertical" Spacing="10">
             <TextBlock Classes="h2 Blue" Text="Device:"/>
-
             <StackPanel Orientation="Vertical">
               <TextBlock Classes="h3 Gray" Text="Device type"/>
               <TextBox Text="LAWICEL" IsEnabled="False" Background="LightGray"/>
@@ -48,7 +30,6 @@
               <TextBlock Classes="h3 Gray" Text="Port"/>
               <TextBox/>
             </StackPanel>
-
             <TabControl>
               <TabItem Header="Channel 1">
                 <StackPanel Orientation="Vertical">
@@ -57,27 +38,24 @@
                 </StackPanel>
               </TabItem>
               <TabItem Header="Channel 2">
-                <TextBlock Text="None"/>
+                <StackPanel Orientation="Vertical">
+                  <TextBlock Classes="h3 Gray" Text="Baud"/>
+                  <TextBox  IsEnabled="False" Watermark="Not Available currently"/>
+                </StackPanel>
               </TabItem>
             </TabControl>
-
-
-
             <TextBlock Classes="h2 Blue" Text="Wireshark:"/>
-
             <StackPanel Orientation="Vertical">
               <TextBlock Classes="h3 Gray" Text="Path"/>
               <Grid ColumnDefinitions="*,Auto">
-                <TextBox/>
-                <Button Grid.Column="1" Classes="ToolButton" Command="{Binding $parent[Window].DataContext.TestExceptionCmd}">
-                  <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Folder_16xMD}" />
+                <TextBox Text="{Binding SharkFolder}"/>
+                <Button Grid.Column="1" Classes="ToolButton" Command="{Binding SetWireSharkFolder}">
+                  <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Folder_16xMD}"/>
                 </Button>
               </Grid>
             </StackPanel>
-
           </StackPanel>
         </Grid>
-
         <Grid ColumnDefinitions="Auto, *" Grid.Row="1">
           <StackPanel Grid.Column="1" HorizontalAlignment="Right">
             <TextBlock Text="CANShart" FontSize="14" FontWeight="Bold" Foreground="Gray"/>
@@ -87,5 +65,4 @@
       </Grid>
     </Border>
   </Grid>
-
 </UserControl>
