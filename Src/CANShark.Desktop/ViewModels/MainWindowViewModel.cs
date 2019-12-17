@@ -14,21 +14,24 @@ namespace CANShark.Desktop.ViewModels
         private readonly SetupMenuViewModel _setupMenuViewModel;
         private readonly AboutViewModel _aboutViewModel;
         private readonly CommandsViewModel _commandsViewModel;
+        private readonly MainViewModel _mainViewViewModel;
 
         public MainWindowViewModel(
             ILogger logger,
             NotificationViewModel notificationViewModel,
             SetupMenuViewModel setupMenuViewModel,
             AboutViewModel aboutViewModel,
-            CommandsViewModel commandsViewModel)
+            CommandsViewModel commandsViewModel,
+            MainViewModel mainViewViewModel)
         {
             _logger = logger;
             _setupMenuViewModel = setupMenuViewModel;
             _aboutViewModel = aboutViewModel;
             _commandsViewModel = commandsViewModel;
             Notification = notificationViewModel;
+            _mainViewViewModel = mainViewViewModel;
 
-            Content = _commandsViewModel;
+            Content = _mainViewViewModel;
 
             ShowAboutModal = ReactiveCommand.Create(() =>
             {
@@ -58,5 +61,15 @@ namespace CANShark.Desktop.ViewModels
         public ReactiveCommand<Unit, Unit> ShowSetupMenuModal { get; }
 
         public ReactiveCommand<Unit, Unit> CloseModal { get; }
+
+        public ILogger Logger => _logger;
+
+        public SetupMenuViewModel SetupMenuViewModel => _setupMenuViewModel;
+
+        public AboutViewModel AboutViewModel => _aboutViewModel;
+
+        public MainViewModel MainViewViewModel => _mainViewViewModel;
+
+        public CommandsViewModel CommandsViewModel => _commandsViewModel;
     }
 }

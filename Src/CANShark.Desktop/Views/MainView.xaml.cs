@@ -3,9 +3,9 @@ using CANShark.Desktop.Views.Core;
 
 namespace CANShark.Desktop.Views
 {
-    public class StatusBarView : BaseControl
+    public class MainView : BaseControl
     {
-        public StatusBarView()
+        public MainView()
         {
             this.InitializeComponent();
         }

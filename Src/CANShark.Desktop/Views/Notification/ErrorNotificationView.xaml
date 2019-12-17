@@ -19,7 +19,7 @@
               <DrawingPresenter Width="35" Height="35" Drawing="{DynamicResource VSCodeLight.error}" />
             </Border>
             <StackPanel VerticalAlignment="Top">
-              <TextBlock Text="Error" Foreground="DarkRed" VerticalAlignment="Center" Classes="h1"/>
+              <TextBlock Text="Error" Foreground="Red" VerticalAlignment="Center" Classes="h1"/>
               <TextBlock Text="{Binding Title}"/>
             </StackPanel>
           </StackPanel>

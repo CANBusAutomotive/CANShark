@@ -8,38 +8,45 @@
              x:Class="CANShark.Desktop.Views.Data.CommandsView">
 
   <Grid RowDefinitions="Auto, *" ZIndex="0">
-    <Border Grid.Row="0" Margin="5, 10">
-      <Grid ColumnDefinitions="Auto, *, 35">
+    <Border Grid.Row="0" Margin="0" BorderThickness="0 0 0 4" BorderBrush="#282828">
+      <Grid Margin="5" ColumnDefinitions="Auto, *, 35">
         <StackPanel Orientation="Horizontal" Spacing="5">
           <Button Classes="ToolButton">
-            <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSImageLib.AddDockerSupport_16x}" />
+            <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.AddDockerSupport_16x}" />
           </Button>
-          <Border BorderThickness="1" BorderBrush="LightGray" Width="1"/>
+          <Border BorderThickness="1" BorderBrush="Gray" Width="1"/>
           <Button Classes="ToolButton">
-            <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSImageLib.ProjectFolderOpen_16x}" />
-          </Button>
-          <Button Classes="ToolButton">
-            <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSImageLib.AddFile_16x}" />
+            <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.ProjectFolderOpen_16x}" />
           </Button>
           <Button Classes="ToolButton">
-            <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSImageLib.SaveAll_16x}" />
+            <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.AddFile_16x}" />
+          </Button>
+          <Button Classes="ToolButton">
+            <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.SaveAll_16x}" />
           </Button>
         </StackPanel>
-        <TextBox Grid.Column="1" Classes="CommandSearchBox" Watermark="Search"/>
-        <Button Classes="BurgerButton"
-                Grid.Column="2"
-                FontWeight="Bold"
-                Command="{Binding $parent[Window].DataContext.ShowSetupMenuModal}">
-          <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSCodeLight.settings}" />
-        </Button>
+        <TextBox Grid.Column="1" Classes="CommandSearchBox" Watermark="Search `ID` or `Description`"/>
       </Grid>
     </Border>
-    <ListBox Grid.Row="1" Classes="CommandList">
-      <ListBoxItem Content="DDDDDDD"/>
-      <ListBoxItem Content="DDDDDDD"/>
-      <ListBoxItem Content="DDDDDDD"/>
-      <ListBoxItem Content="DDDDDDD"/>
-    </ListBox>
+
+    <Grid Grid.Row="1" RowDefinitions="*,Auto,*">
+      <ListBox Grid.Row="0" Classes="CommandList" Background="Transparent">
+        <ListBoxItem Content="DDDDDDD"/>
+        <ListBoxItem Content="DDDDDDD"/>
+        <ListBoxItem Content="DDDDDDD"/>
+        <ListBoxItem Content="DDDDDDD"/>
+      </ListBox>
+
+      <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
+
+      <ListBox Grid.Row="2" Classes="CommandList" Background="Transparent">
+        <ListBoxItem Content="DDDDDDD"/>
+        <ListBoxItem Content="DDDDDDD"/>
+        <ListBoxItem Content="DDDDDDD"/>
+        <ListBoxItem Content="DDDDDDD"/>
+      </ListBox>
+    </Grid>
+
   </Grid>
 
 </UserControl>

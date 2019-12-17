@@ -47,6 +47,7 @@ namespace CANShark.Desktop
             services.AddSingleton<AboutViewModel>();
             services.AddSingleton<SetupMenuViewModel>();
             services.AddSingleton<NotificationViewModel>();
+            services.AddSingleton<MainViewModel>();
 
             // Register utils
             services.AddSingleton<AppSuspendDriver>();

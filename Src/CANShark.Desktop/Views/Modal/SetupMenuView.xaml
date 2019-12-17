@@ -1,68 +1,31 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" x:Class="CANShark.Desktop.Views.Modal.SetupMenuView">
-  <Grid Classes="Modal">
-    <Border Classes="ModalBackground"/>
-    <Border Classes="ModalContent" Width="300" HorizontalAlignment="Right" CornerRadius="0">
-      <Grid RowDefinitions="*, Auto" Margin="10">
-        <Grid Grid.Row="0" RowDefinitions="35,*">
-          <Grid ColumnDefinitions="*,Auto,30,Auto">
-            <TextBlock Classes="h1" Text="Settings"/>
-            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10">
-              <Border BorderThickness="1" BorderBrush="LightGray" Width="1"/>
-              <Button Classes="ToolButton">
-                <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSImageLib.ConnectFilled_16x}"/>
-              </Button>
-              <Button Classes="ToolButton">
-                <DrawingPresenter Width="25" Height="25" Drawing="{DynamicResource VSCodeLight.debug-disconnect}"/>
-              </Button>
-              <Border BorderThickness="1" BorderBrush="LightGray" Width="1"/>
-            </StackPanel>
-            <Button Classes="CloseButton" Grid.Column="3" Command="{Binding $parent[Window].DataContext.CloseModal}">
-              <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Close_16x}"/>
-            </Button>
-          </Grid>
-          <StackPanel Grid.Row="1" Orientation="Vertical" Spacing="10">
-            <TextBlock Classes="h2 Blue" Text="Device:"/>
-            <StackPanel Orientation="Vertical">
-              <TextBlock Classes="h3 Gray" Text="Device type"/>
-              <TextBox Text="LAWICEL" IsEnabled="False" Background="LightGray"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical">
-              <TextBlock Classes="h3 Gray" Text="Port"/>
-              <TextBox/>
-            </StackPanel>
-            <TabControl>
-              <TabItem Header="Channel 1">
-                <StackPanel Orientation="Vertical">
-                  <TextBlock Classes="h3 Gray" Text="Baud"/>
-                  <TextBox/>
-                </StackPanel>
-              </TabItem>
-              <TabItem Header="Channel 2">
-                <StackPanel Orientation="Vertical">
-                  <TextBlock Classes="h3 Gray" Text="Baud"/>
-                  <TextBox  IsEnabled="False" Watermark="Not Available currently"/>
-                </StackPanel>
-              </TabItem>
-            </TabControl>
-            <TextBlock Classes="h2 Blue" Text="Wireshark:"/>
-            <StackPanel Orientation="Vertical">
-              <TextBlock Classes="h3 Gray" Text="Path"/>
-              <Grid ColumnDefinitions="*,Auto">
-                <TextBox Text="{Binding SharkFolder}"/>
-                <Button Grid.Column="1" Classes="ToolButton" Command="{Binding SetWireSharkFolder}">
-                  <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Folder_16xMD}"/>
-                </Button>
-              </Grid>
-            </StackPanel>
-          </StackPanel>
-        </Grid>
-        <Grid ColumnDefinitions="Auto, *" Grid.Row="1">
-          <StackPanel Grid.Column="1" HorizontalAlignment="Right">
-            <TextBlock Text="CANShart" FontSize="14" FontWeight="Bold" Foreground="Gray"/>
-            <TextBlock Text="Version: xxx" Foreground="Gray"/>
-          </StackPanel>
-        </Grid>
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="CANShark.Desktop.Views.Modal.SetupMenuView">
+
+  <Grid RowDefinitions="Auto, *" ZIndex="0">
+    <Border Grid.Row="0" Margin="0" BorderThickness="0 0 0 4" BorderBrush="#282828">
+      <Grid Margin="5" ColumnDefinitions="Auto, *, 35">
+        <StackPanel Orientation="Horizontal" Spacing="5">
+          <Button Classes="ToolButton" Command="{Binding SetWireSharkFolder}">
+            <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.ConnectFilled_16x}" />
+          </Button>
+        </StackPanel>
       </Grid>
     </Border>
+
+    <StackPanel Grid.Row="1" Background="Transparent">
+      <Expander IsExpanded="False" Header="Device">
+        <TextBox></TextBox>
+      </Expander>
+      <Expander Header="WireShark">
+        <TextBox></TextBox>
+      </Expander>
+    </StackPanel>
   </Grid>
+
 </UserControl>

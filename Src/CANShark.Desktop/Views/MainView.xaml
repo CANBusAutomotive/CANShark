@@ -1,0 +1,51 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:dataViews="clr-namespace:CANShark.Desktop.Views.Data;assembly=CANShark.Desktop"
+             xmlns:setupViews="clr-namespace:CANShark.Desktop.Views.Modal;assembly=CANShark.Desktop"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CANShark.Desktop.Views.MainView">
+
+  <TabControl Classes="sidebar">
+    <TabItem Header="Commands">
+      <Border Background="#535353">
+        <dataViews:CommandsView DataContext="{Binding $parent[Window].DataContext.CommandsViewModel}"/>
+      </Border>
+    </TabItem>
+    <TabItem Header="Setup">
+      <Border Background="#535353">
+        <setupViews:SetupMenuView DataContext="{Binding $parent[Window].DataContext.SetupMenuViewModel}"/>
+      </Border>
+    </TabItem>
+  </TabControl>
+
+  <UserControl.Styles>
+    <Style Selector="TabControl.sidebar > TabItem">
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="Margin" Value="0"/>
+      <Setter Property="Padding" Value="8"/>
+      <Setter Property="Opacity" Value="0.5"/>
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Opacity" Duration="0:0:0.200"/>
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="TabControl.sidebar > TabItem:pointerover">
+      <Setter Property="Opacity" Value="1"/>
+    </Style>
+    <Style Selector="TabControl.sidebar > TabItem:pointerover">
+      <Setter Property="Background" Value="Transparent"/>
+    </Style>
+    <Style Selector="TabControl.sidebar > TabItem:selected">
+      <Setter Property="Opacity" Value="1"/>
+    </Style>
+    <Style Selector="TabControl.sidebar > TabItem:selected">
+      <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}"/>
+    </Style>
+  </UserControl.Styles>
+
+</UserControl>

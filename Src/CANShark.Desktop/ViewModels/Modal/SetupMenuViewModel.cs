@@ -1,4 +1,5 @@
-﻿using System.Reactive;
+﻿using System;
+using System.Reactive;
 using CANShark.Desktop.Infrastructure.Dialogs;
 using CANShark.Desktop.ViewModels.Core;
 using ReactiveUI;
@@ -15,6 +16,7 @@ namespace CANShark.Desktop.ViewModels.Modal
 
             SetWireSharkFolder = ReactiveCommand.CreateFromTask(async () =>
             {
+                throw new NotImplementedException();
                 SharkFolder = await _dialogManager.ShowFolderDialog();
             });
         }
