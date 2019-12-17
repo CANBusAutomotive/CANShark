@@ -17,6 +17,8 @@
 
   <Grid RowDefinitions="0,*,0">
 
+    <!--<TextBlock Grid.Row="1" Classes="connectionState" Text="OFF Line" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBlock>-->
+
     <ContentControl Grid.Row="1" Content="{Binding Content}">
       <ContentControl.DataTemplates>
         <local:ViewLocator/>
@@ -36,5 +38,14 @@
     </ContentControl>
 
   </Grid>
+
+  <Window.Styles>
+    <Style Selector="TextBlock.connectionState[Text=OFF Line]">
+      <Setter Property="Background" Value="Red"></Setter>
+    </Style>
+    <Style Selector="TextBlock.connectionState[Text=ON Line]">
+      <Setter Property="Background" Value="Green"></Setter>
+    </Style>
+  </Window.Styles>
 
 </Window>

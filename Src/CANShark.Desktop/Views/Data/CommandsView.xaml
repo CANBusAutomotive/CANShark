@@ -30,21 +30,35 @@
     </Border>
 
     <Grid Grid.Row="1" RowDefinitions="*,Auto,*">
-      <ListBox Grid.Row="0" Classes="CommandList" Background="Transparent">
-        <ListBoxItem Content="DDDDDDD"/>
-        <ListBoxItem Content="DDDDDDD"/>
-        <ListBoxItem Content="DDDDDDD"/>
-        <ListBoxItem Content="DDDDDDD"/>
-      </ListBox>
+      <Grid Grid.Row="0" RowDefinitions="22, *">
+
+        <Border Grid.Row="0" Background="Black" BorderBrush="Gray" BorderThickness="0 1 0 1">
+          <TextBlock Classes="h3" Text="Broadcasts:"/>
+        </Border>
+
+        <ListBox Grid.Row="1" Classes="CommandList" Background="Transparent">
+          <ListBoxItem Content="DDDDDDD"/>
+          <ListBoxItem Content="DDDDDDD"/>
+          <ListBoxItem Content="DDDDDDD"/>
+          <ListBoxItem Content="DDDDDDD"/>
+        </ListBox>
+      </Grid>
 
       <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
 
-      <ListBox Grid.Row="2" Classes="CommandList" Background="Transparent">
-        <ListBoxItem Content="DDDDDDD"/>
-        <ListBoxItem Content="DDDDDDD"/>
-        <ListBoxItem Content="DDDDDDD"/>
-        <ListBoxItem Content="DDDDDDD"/>
-      </ListBox>
+      <Grid Grid.Row="2" RowDefinitions="22, *">
+
+        <Border Grid.Row="0" Background="Black" BorderBrush="Gray" BorderThickness="0 1 0 1">
+          <TextBlock Classes="h3" Text="Keep alive:"/>
+        </Border>
+
+        <ListBox Grid.Row="1" Classes="CommandList" Background="Transparent">
+          <ListBoxItem Content="DDDDDDD"/>
+          <ListBoxItem Content="DDDDDDD"/>
+          <ListBoxItem Content="DDDDDDD"/>
+          <ListBoxItem Content="DDDDDDD"/>
+        </ListBox>
+      </Grid>
     </Grid>
 
   </Grid>
