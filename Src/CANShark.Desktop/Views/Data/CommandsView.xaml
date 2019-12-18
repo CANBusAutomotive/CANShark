@@ -32,11 +32,23 @@
     <Grid Grid.Row="1" RowDefinitions="*,Auto,*">
       <Grid Grid.Row="0" RowDefinitions="22, *">
 
-        <Border Grid.Row="0" Background="Black" BorderBrush="Gray" BorderThickness="0 1 0 1">
-          <TextBlock Classes="h3" Text="Broadcasts:"/>
+        <Border Grid.Row="0" Background="#282828" BorderBrush="Gray" BorderThickness="0 1 0 1">
+          <Grid ColumnDefinitions="*,Auto">
+            <TextBlock Text="Broadcast:"/>
+            <StackPanel Orientation="Horizontal" Spacing="2" Grid.Column="1">
+              <Button Classes="ToolButton">
+                <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Add_thin_10x_16x}" />
+              </Button>
+              <Button Classes="ToolButton">
+                <DrawingPresenter Width="16" Height="16" Drawing="{DynamicResource VSImageLib.CleanData_16x}" />
+              </Button>
+            </StackPanel>
+          </Grid>
         </Border>
 
-        <ListBox Grid.Row="1" Classes="CommandList" Background="Transparent">
+        <ListBox Grid.Row="1"
+                 Classes="CommandList"
+                 Background="Transparent">
           <ListBoxItem Content="DDDDDDD"/>
           <ListBoxItem Content="DDDDDDD"/>
           <ListBoxItem Content="DDDDDDD"/>
@@ -44,12 +56,33 @@
         </ListBox>
       </Grid>
 
-      <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
+      <GridSplitter Grid.Row="1"
+                    HorizontalAlignment="Stretch"/>
 
-      <Grid Grid.Row="2" RowDefinitions="22, *">
+      <Grid Grid.Row="2"
+            RowDefinitions="22, *">
 
-        <Border Grid.Row="0" Background="Black" BorderBrush="Gray" BorderThickness="0 1 0 1">
-          <TextBlock Classes="h3" Text="Keep alive:"/>
+        <Border Grid.Row="0"
+                Background="#282828"
+                BorderBrush="Gray"
+                BorderThickness="0 1 0 1">
+          <Grid ColumnDefinitions="*,Auto">
+            <TextBlock Text="Keep alive:"/>
+            <StackPanel Orientation="Horizontal"
+                        Spacing="2"
+                        Grid.Column="1">
+              <Button Classes="ToolButton">
+                <DrawingPresenter Width="20"
+                                  Height="20"
+                                  Drawing="{DynamicResource VSImageLib.Add_thin_10x_16x}" />
+              </Button>
+              <Button Classes="ToolButton">
+                <DrawingPresenter Width="16"
+                                  Height="16"
+                                  Drawing="{DynamicResource VSImageLib.CleanData_16x}" />
+              </Button>
+            </StackPanel>
+          </Grid>
         </Border>
 
         <ListBox Grid.Row="1" Classes="CommandList" Background="Transparent">
