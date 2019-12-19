@@ -16,6 +16,7 @@ namespace CANShark.Desktop.ViewModels
         private readonly AboutViewModel _aboutViewModel;
         private readonly CommandsViewModel _commandsViewModel;
         private readonly MainViewModel _mainViewViewModel;
+        private readonly SetPortViewModel _setPortViewModel;
         private readonly IAppConfigService _appConfigService;
 
         public MainWindowViewModel(
@@ -25,7 +26,8 @@ namespace CANShark.Desktop.ViewModels
             AboutViewModel aboutViewModel,
             CommandsViewModel commandsViewModel,
             MainViewModel mainViewViewModel,
-            IAppConfigService appConfigService)
+            IAppConfigService appConfigService,
+            SetPortViewModel setPortViewModel)
         {
             _logger = logger;
             _setupMenuViewModel = setupMenuViewModel;
@@ -34,6 +36,7 @@ namespace CANShark.Desktop.ViewModels
             Notification = notificationViewModel;
             _mainViewViewModel = mainViewViewModel;
             _appConfigService = appConfigService;
+            _setPortViewModel = setPortViewModel;
 
             Content = _mainViewViewModel;
 
@@ -52,6 +55,11 @@ namespace CANShark.Desktop.ViewModels
             {
                 Modal = null;
             });
+
+            ShowPortViewModel = ReactiveCommand.Create(() =>
+            {
+                Modal = _setPortViewModel;
+            });
         }
 
         public ViewModelBase Content { get; set; }
@@ -63,6 +71,8 @@ namespace CANShark.Desktop.ViewModels
         public ReactiveCommand<Unit, Unit> ShowAboutModal { get; }
 
         public ReactiveCommand<Unit, Unit> ShowSetupMenuModal { get; }
+
+        public ReactiveCommand<Unit, Unit> ShowPortViewModel { get; }
 
         public ReactiveCommand<Unit, Unit> CloseModal { get; }
 
@@ -77,5 +87,7 @@ namespace CANShark.Desktop.ViewModels
         public MainViewModel MainViewViewModel => _mainViewViewModel;
 
         public CommandsViewModel CommandsViewModel => _commandsViewModel;
+
+        public SetPortViewModel SetPortViewModel => _setPortViewModel;
     }
 }

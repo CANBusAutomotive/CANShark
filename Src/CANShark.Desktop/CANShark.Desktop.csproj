@@ -19,10 +19,12 @@
 
   <ItemGroup>
     <AvaloniaResource Remove="Views\MainView.xaml" />
+    <AvaloniaResource Remove="Views\Modal\SetPortView.xaml" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Views\MainView.xaml" />
+    <None Remove="Views\Modal\SetPortView.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +42,12 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Views\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Modal\SetPortView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -88,6 +88,12 @@
         <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M0,10L16,10 16,6 0,6z" />
         <GeometryDrawing Brush="#FFA1260C" Geometry="F1M15,9L1,9 1,7 15,7z" />
       </DrawingGroup>
+
+      <DrawingGroup x:Key="VSImageLib.CollapseChevronDown_16x"  >
+        <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M0,0L16,0 16,16 0,16z" />
+        <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M2.3057,6.3906L4.7807,3.9156 7.9997,7.1356 11.2197,3.9156 13.6947,6.3906 7.9997,12.0836z" />
+        <GeometryDrawing Brush="#FF424242" Geometry="F1M3.7197,6.3901L4.7807,5.3291 7.9997,8.5491 11.2197,5.3291 12.2807,6.3901 7.9997,10.6701z" />
+      </DrawingGroup>
     </Style.Resources>
   </Style>
 

@@ -21,15 +21,25 @@
     <StackPanel Grid.Row="1" Background="Transparent">
       <Expander IsExpanded="False" Header="Device">
         <StackPanel Spacing="5">
-          <TextBox Text="{Binding AppConfigService.Config.Port}" Watermark="Port"/>
-          <TextBox Text="{Binding AppConfigService.Config.Baudrate}" Watermark="Baud-rate"/>
+          <Grid ColumnDefinitions="*, Auto">
+            <TextBox Text="{Binding AppConfigService.Config.Port}" Watermark="Port"/>
+            <Button Grid.Column="1" Classes="ToolButton" Command="{Binding $parent[Window].DataContext.ShowPortViewModel}">
+              <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.CollapseChevronDown_16x}"/>
+            </Button>
+          </Grid>
+          <Grid ColumnDefinitions="*, Auto">
+            <TextBox Text="{Binding AppConfigService.Config.Baudrate}" Watermark="Baud-rate"/>
+            <Button Grid.Column="1" Classes="ToolButton" Command="{Binding $parent[Window].DataContext.ShowPortViewModel}">
+              <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.CollapseChevronDown_16x}"/>
+            </Button>
+          </Grid>
         </StackPanel>
       </Expander>
       <Expander Header="WireShark">
         <Grid ColumnDefinitions="*,Auto">
           <TextBox Text="{Binding AppConfigService.Config.WiresharkPath}" Watermark="Path to Wireshark"/>
           <Button Classes="ToolButton" Command="{Binding SetWireSharkFolder}" Grid.Column="1">
-            <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Folder_16xMD}" />
+            <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Folder_16xMD}"/>
           </Button>
         </Grid>
       </Expander>
