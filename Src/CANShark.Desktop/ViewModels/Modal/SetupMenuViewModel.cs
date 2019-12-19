@@ -1,7 +1,7 @@
-﻿using System;
-using System.Reactive;
+﻿using System.Reactive;
 using CANShark.Desktop.Infrastructure.Dialogs;
 using CANShark.Desktop.ViewModels.Core;
+using CANShark.Services.Configuration;
 using ReactiveUI;
 
 namespace CANShark.Desktop.ViewModels.Modal
@@ -9,23 +9,20 @@ namespace CANShark.Desktop.ViewModels.Modal
     public class SetupMenuViewModel : ViewModelBase
     {
         private readonly IDialogManager _dialogManager;
+        private readonly IAppConfigService _appConfigService;
 
-        public SetupMenuViewModel(IDialogManager dialogManager)
+        public SetupMenuViewModel(IDialogManager dialogManager, IAppConfigService appConfigService)
         {
             _dialogManager = dialogManager;
+            _appConfigService = appConfigService;
 
             SetWireSharkFolder = ReactiveCommand.CreateFromTask(async () =>
             {
-                throw new NotImplementedException();
-                SharkFolder = await _dialogManager.ShowFolderDialog();
+                AppConfigService.Config.WiresharkPath = await _dialogManager.ShowFolderDialog();
             });
         }
 
-        public string SerialPort { get; set; }
-
-        public string BaudRate { get; set; }
-
-        public string SharkFolder { get; set; }
+        public IAppConfigService AppConfigService => _appConfigService;
 
         public ReactiveCommand<Unit, Unit> SetWireSharkFolder { get; set; }
     }

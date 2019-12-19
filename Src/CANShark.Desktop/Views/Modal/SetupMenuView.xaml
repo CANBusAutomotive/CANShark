@@ -11,7 +11,7 @@
     <Border Grid.Row="0" Margin="0" BorderThickness="0 0 0 4" BorderBrush="#282828">
       <Grid Margin="5" ColumnDefinitions="Auto, *, 35">
         <StackPanel Orientation="Horizontal" Spacing="5">
-          <Button Classes="ToolButton" Command="{Binding SetWireSharkFolder}">
+          <Button Classes="ToolButton" Command="{Binding}">
             <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.ConnectFilled_16x}" />
           </Button>
         </StackPanel>
@@ -20,10 +20,18 @@
 
     <StackPanel Grid.Row="1" Background="Transparent">
       <Expander IsExpanded="False" Header="Device">
-        <TextBox></TextBox>
+        <StackPanel Spacing="5">
+          <TextBox Text="{Binding AppConfigService.Config.Port}" Watermark="Port"/>
+          <TextBox Text="{Binding AppConfigService.Config.Baudrate}" Watermark="Baud-rate"/>
+        </StackPanel>
       </Expander>
       <Expander Header="WireShark">
-        <TextBox></TextBox>
+        <Grid ColumnDefinitions="*,Auto">
+          <TextBox Text="{Binding AppConfigService.Config.WiresharkPath}" Watermark="Path to Wireshark"/>
+          <Button Classes="ToolButton" Command="{Binding SetWireSharkFolder}" Grid.Column="1">
+            <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Folder_16xMD}" />
+          </Button>
+        </Grid>
       </Expander>
     </StackPanel>
   </Grid>

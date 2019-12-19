@@ -8,6 +8,7 @@ using CANShark.Desktop.ViewModels.Data;
 using CANShark.Desktop.ViewModels.Modal;
 using CANShark.Desktop.ViewModels.Notification;
 using CANShark.Desktop.Views;
+using CANShark.Services.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PropertyChanged;
 using ReactiveUI;
@@ -56,6 +57,7 @@ namespace CANShark.Desktop
 
             // Register services
             services.AddSingleton(ConfigoreLogging());
+            services.AddSingleton<IAppConfigService, JsonConfigService>();
 
             return services.BuildServiceProvider();
         }
