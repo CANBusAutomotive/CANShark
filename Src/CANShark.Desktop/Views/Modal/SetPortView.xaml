@@ -25,6 +25,9 @@
           <Button Content="Cancel"
                   Width="60"
                   Command="{Binding $parent[Window].DataContext.ModalWindowManager.CloseModal}"/>
+          <Button Content="Refresh"
+                  Width="60"
+                  Command="{Binding RefreshPortList}"/>
         </StackPanel>
       </Grid>
     </Border>

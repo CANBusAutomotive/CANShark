@@ -2,7 +2,9 @@
 using CANShark.Desktop.ViewModels.Core;
 using CANShark.Services.Configuration;
 using ReactiveUI;
+using System;
 using System.Collections.ObjectModel;
+using System.IO.Ports;
 using System.Reactive;
 
 namespace CANShark.Desktop.ViewModels.Modal
@@ -19,23 +21,26 @@ namespace CANShark.Desktop.ViewModels.Modal
             _modalWindowManager = modalWindowManager;
             _appConfigService = appConfigService;
 
-            PortList = new ObservableCollection<string>
+            RefreshPortList = ReactiveCommand.Create(() =>
             {
-                "COM1",
-                "COM2",
-                "COM3"
-            };
+                PortList?.Clear();
+                PortList = new ObservableCollection<string>(SerialPort.GetPortNames());
+            });
 
             AppyPort = ReactiveCommand.Create(() =>
             {
                 _appConfigService.Config.Port = SelectedPort;
                 MessageBus.Current.SendMessage<string>("closeModal");
             });
+
+            RefreshPortList.Execute().Subscribe();
         }
 
         public string SelectedPort { get; set; }
 
         public ObservableCollection<string> PortList { get; set; }
+
+        public ReactiveCommand<Unit, Unit> RefreshPortList { get; set; }
 
         public ReactiveCommand<Unit, Unit> AppyPort { get; set; }
     }
