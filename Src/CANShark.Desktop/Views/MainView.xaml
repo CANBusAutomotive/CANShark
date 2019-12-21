@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dataViews="clr-namespace:CANShark.Desktop.Views.Data;assembly=CANShark.Desktop"
-             xmlns:setupViews="clr-namespace:CANShark.Desktop.Views.Modal;assembly=CANShark.Desktop"
+             xmlns:setupViews="clr-namespace:CANShark.Desktop.Views.Setup;assembly=CANShark.Desktop"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="CANShark.Desktop.Views.MainView">
 
@@ -15,7 +15,7 @@
     </TabItem>
     <TabItem Header="Setup">
       <Border Background="#535353">
-        <setupViews:SetupMenuView DataContext="{Binding $parent[Window].DataContext.SetupMenuViewModel}"/>
+        <setupViews:SetupView DataContext="{Binding $parent[Window].DataContext.SetupMenuViewModel}"/>
       </Border>
     </TabItem>
   </TabControl>

@@ -5,9 +5,9 @@
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             x:Class="CANShark.Desktop.Views.Modal.SetupMenuView">
+             x:Class="CANShark.Desktop.Views.Setup.SetupView">
 
-  <Grid RowDefinitions="Auto, *" ZIndex="0">
+  <Grid RowDefinitions="Auto, *" ZIndex="0" Margin="5">
     <Border Grid.Row="0" Margin="0" BorderThickness="0 0 0 4" BorderBrush="#282828">
       <Grid Margin="5" ColumnDefinitions="Auto, *, 35">
         <StackPanel Orientation="Horizontal" Spacing="5">
@@ -23,7 +23,7 @@
         <StackPanel Spacing="5">
           <Grid ColumnDefinitions="*, Auto">
             <TextBox Text="{Binding AppConfigService.Config.Port}" Watermark="Port"/>
-            <Button Grid.Column="1" Classes="ToolButton" Command="{Binding $parent[Window].DataContext.ShowPortViewModel}">
+            <Button Grid.Column="1" Classes="ToolButton" Command="{Binding SetPortCmd}">
               <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.CollapseChevronDown_16x}"/>
             </Button>
           </Grid>
@@ -38,7 +38,7 @@
       <Expander Header="WireShark">
         <Grid ColumnDefinitions="*,Auto">
           <TextBox Text="{Binding AppConfigService.Config.WiresharkPath}" Watermark="Path to Wireshark"/>
-          <Button Classes="ToolButton" Command="{Binding SetWireSharkFolder}" Grid.Column="1">
+          <Button Classes="ToolButton" Command="{Binding SetWireSharkFolderCmd}" Grid.Column="1">
             <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.Folder_16xMD}"/>
           </Button>
         </Grid>

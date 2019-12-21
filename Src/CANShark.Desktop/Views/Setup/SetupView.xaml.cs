@@ -1,13 +1,13 @@
 ﻿using Avalonia.Markup.Xaml;
 using CANShark.Desktop.Views.Core;
 
-namespace CANShark.Desktop.Views.Modal
+namespace CANShark.Desktop.Views.Setup
 {
-    public class SetupMenuView : BaseControl
+    public class SetupView : BaseControl
     {
-        public SetupMenuView()
+        public SetupView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         private void InitializeComponent()

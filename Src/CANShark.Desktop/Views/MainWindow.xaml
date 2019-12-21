@@ -25,7 +25,7 @@
       </ContentControl.DataTemplates>
     </ContentControl>
 
-    <ContentControl Grid.Row="0" Grid.RowSpan="3" Content="{Binding Modal}">
+    <ContentControl Grid.Row="0" Grid.RowSpan="3" Content="{Binding ModalWindowManager.Content}">
       <ContentControl.DataTemplates>
         <local:ViewLocator/>
       </ContentControl.DataTemplates>

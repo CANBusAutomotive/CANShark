@@ -2,11 +2,13 @@
 using Avalonia.Markup.Xaml;
 using Avalonia.ReactiveUI;
 using CANShark.Desktop.Infrastructure.Dialogs;
+using CANShark.Desktop.Infrastructure.Windows.Modal;
 using CANShark.Desktop.Utils;
 using CANShark.Desktop.ViewModels;
 using CANShark.Desktop.ViewModels.Data;
 using CANShark.Desktop.ViewModels.Modal;
 using CANShark.Desktop.ViewModels.Notification;
+using CANShark.Desktop.ViewModels.Setup;
 using CANShark.Desktop.Views;
 using CANShark.Services.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +21,7 @@ namespace CANShark.Desktop
     [DoNotNotify]
     public class App : Application
     {
-        private ServiceProvider _sp;
+        internal static ServiceProvider ServicePropvider { get; private set; }
 
         public override void Initialize()
         {
@@ -46,7 +48,7 @@ namespace CANShark.Desktop
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<CommandsViewModel>();
             services.AddSingleton<AboutViewModel>();
-            services.AddSingleton<SetupMenuViewModel>();
+            services.AddSingleton<SetupViewModel>();
             services.AddSingleton<NotificationViewModel>();
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<SetPortViewModel>();
@@ -54,6 +56,7 @@ namespace CANShark.Desktop
             // Register utils
             services.AddSingleton<AppSuspendDriver>();
             services.AddTransient<AppExceptionHandler>();
+            services.AddSingleton<ModalWindowManager>();
             services.AddTransient<IDialogManager, NativeDialogManager>();
 
             // Register services
@@ -65,15 +68,15 @@ namespace CANShark.Desktop
 
         public override void OnFrameworkInitializationCompleted()
         {
-            _sp = ConfigureServices(new ServiceCollection());
+            ServicePropvider = ConfigureServices(new ServiceCollection());
 
             var suspension = new AutoSuspendHelper(ApplicationLifetime);
-            RxApp.DefaultExceptionHandler = _sp.GetService<AppExceptionHandler>();
-            RxApp.SuspensionHost.SetupDefaultSuspendResume(_sp.GetService<AppSuspendDriver>());
+            RxApp.DefaultExceptionHandler = ServicePropvider.GetService<AppExceptionHandler>();
+            RxApp.SuspensionHost.SetupDefaultSuspendResume(ServicePropvider.GetService<AppSuspendDriver>());
             suspension.OnFrameworkInitializationCompleted();
 
-            var mainWindow = _sp.GetService<MainWindow>();
-            mainWindow.DataContext = _sp.GetService<MainWindowViewModel>();
+            var mainWindow = ServicePropvider.GetService<MainWindow>();
+            mainWindow.DataContext = ServicePropvider.GetService<MainWindowViewModel>();
             mainWindow.Show();
 
             base.OnFrameworkInitializationCompleted();

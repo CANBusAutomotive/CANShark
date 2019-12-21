@@ -1,93 +1,44 @@
-﻿using CANShark.Desktop.ViewModels.Core;
+﻿using CANShark.Desktop.Infrastructure.Windows.Modal;
+using CANShark.Desktop.ViewModels.Core;
 using CANShark.Desktop.ViewModels.Data;
-using CANShark.Desktop.ViewModels.Modal;
 using CANShark.Desktop.ViewModels.Notification;
+using CANShark.Desktop.ViewModels.Setup;
 using CANShark.Services.Configuration;
-using ReactiveUI;
-using Serilog;
-using System.Reactive;
 
 namespace CANShark.Desktop.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private readonly ILogger _logger;
-        private readonly SetupMenuViewModel _setupMenuViewModel;
-        private readonly AboutViewModel _aboutViewModel;
-        private readonly CommandsViewModel _commandsViewModel;
-        private readonly MainViewModel _mainViewViewModel;
-        private readonly SetPortViewModel _setPortViewModel;
-        private readonly IAppConfigService _appConfigService;
-
         public MainWindowViewModel(
-            ILogger logger,
             NotificationViewModel notificationViewModel,
-            SetupMenuViewModel setupMenuViewModel,
-            AboutViewModel aboutViewModel,
+            SetupViewModel setupMenuViewModel,
             CommandsViewModel commandsViewModel,
             MainViewModel mainViewViewModel,
             IAppConfigService appConfigService,
-            SetPortViewModel setPortViewModel)
+            ModalWindowManager modalWindowManager)
         {
-            _logger = logger;
-            _setupMenuViewModel = setupMenuViewModel;
-            _aboutViewModel = aboutViewModel;
-            _commandsViewModel = commandsViewModel;
+            SetupMenuViewModel = setupMenuViewModel;
+            CommandsViewModel = commandsViewModel;
             Notification = notificationViewModel;
-            _mainViewViewModel = mainViewViewModel;
-            _appConfigService = appConfigService;
-            _setPortViewModel = setPortViewModel;
+            MainViewViewModel = mainViewViewModel;
+            AppConfigService = appConfigService;
+            ModalWindowManager = modalWindowManager;
 
-            Content = _mainViewViewModel;
-
-            ShowAboutModal = ReactiveCommand.Create(() =>
-            {
-                Modal = _aboutViewModel;
-            });
-
-            ShowSetupMenuModal = ReactiveCommand.Create(() =>
-            {
-                _logger.Information("Setup window");
-                Modal = _setupMenuViewModel;
-            });
-
-            CloseModal = ReactiveCommand.Create(() =>
-            {
-                Modal = null;
-            });
-
-            ShowPortViewModel = ReactiveCommand.Create(() =>
-            {
-                Modal = _setPortViewModel;
-            });
+            Content = MainViewViewModel;
         }
 
         public ViewModelBase Content { get; set; }
 
-        public ViewModelBase Modal { get; set; }
-
         public NotificationViewModel Notification { get; set; }
 
-        public ReactiveCommand<Unit, Unit> ShowAboutModal { get; }
+        public IAppConfigService AppConfigService { get; }
 
-        public ReactiveCommand<Unit, Unit> ShowSetupMenuModal { get; }
+        public SetupViewModel SetupMenuViewModel { get; }
 
-        public ReactiveCommand<Unit, Unit> ShowPortViewModel { get; }
+        public MainViewModel MainViewViewModel { get; }
 
-        public ReactiveCommand<Unit, Unit> CloseModal { get; }
+        public CommandsViewModel CommandsViewModel { get; }
 
-        public ILogger Logger => _logger;
-
-        public IAppConfigService AppConfigService => _appConfigService;
-
-        public SetupMenuViewModel SetupMenuViewModel => _setupMenuViewModel;
-
-        public AboutViewModel AboutViewModel => _aboutViewModel;
-
-        public MainViewModel MainViewViewModel => _mainViewViewModel;
-
-        public CommandsViewModel CommandsViewModel => _commandsViewModel;
-
-        public SetPortViewModel SetPortViewModel => _setPortViewModel;
+        public ModalWindowManager ModalWindowManager { get; }
     }
 }

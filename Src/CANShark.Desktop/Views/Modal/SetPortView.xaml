@@ -13,14 +13,7 @@
             HorizontalAlignment="Center"
             CornerRadius="4">
       <Grid RowDefinitions="*, Auto">
-        <ListBox Margin="5">
-          <ListBoxItem>1321321321321</ListBoxItem>
-          <ListBoxItem>1321321321321</ListBoxItem>
-          <ListBoxItem>1321321321321</ListBoxItem>
-          <ListBoxItem>1321321321321</ListBoxItem>
-          <ListBoxItem>1321321321321</ListBoxItem>
-          <ListBoxItem>1321321321321</ListBoxItem>
-        </ListBox>
+        <ListBox Margin="5" Items="{Binding PortList}" SelectedItem="{Binding SelectedPort}"/>
         <StackPanel Orientation="Horizontal"
                     Grid.Row="1"
                     Spacing="10"
@@ -28,10 +21,10 @@
                     Margin="5">
           <Button Content="OK"
                   Width="60"
-                  Command="{Binding $parent[Window].DataContext.CloseModal}"/>
+                  Command="{Binding AppyPort}"/>
           <Button Content="Cancel"
                   Width="60"
-                  Command="{Binding $parent[Window].DataContext.CloseModal}"/>
+                  Command="{Binding $parent[Window].DataContext.ModalWindowManager.CloseModal}"/>
         </StackPanel>
       </Grid>
     </Border>
