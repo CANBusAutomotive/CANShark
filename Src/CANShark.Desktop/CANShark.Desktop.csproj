@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Assets\Fonts\" />
-    <Folder Include="Models\" />
     <Compile Update="**\*.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
@@ -15,6 +14,21 @@
     </AvaloniaResource>
     <AvaloniaResource Include="Assets\*" />
     <AvaloniaResource Include="Assets\Fonts\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Remove="Models\**" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Remove="Views\Modal\SetBaudrateView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Modal\SetBaudrateView.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +43,12 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.0" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.1.3" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Modal\SetBaudrateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

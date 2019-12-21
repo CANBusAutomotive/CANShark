@@ -11,16 +11,17 @@ namespace CANShark.Desktop.Infrastructure.Windows.Modal
     {
         public ModalWindowManager()
         {
-            MessageBus.Current.Listen<string>()
-                .Where(x => x == "closeModal")
+            MessageBus.Current.Listen<ModalActions>()
+                .Where(x => x ==  ModalActions.Close)
                 .Subscribe(_ => CloseModal());
         }
 
         public ViewModelBase Content { get; set; }
 
-        public void ShowModalFor<TType>() where TType : ViewModelBase
+        public void ShowModalFor<T>() where T : ViewModelBase
         {
-            Content = App.ServicePropvider.GetService<TType>();
+            Content = App.ServicePropvider.GetService<T>()
+                ?? throw new ArgumentException($"{typeof(T).FullName} is not registered");
         }
 
         public void CloseModal()

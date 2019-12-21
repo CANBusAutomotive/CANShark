@@ -31,6 +31,11 @@ namespace CANShark.Desktop.ViewModels.Setup
             {
                 _modalWindowManager.ShowModalFor<SetPortViewModel>();
             });
+
+            SetBaudrateCmd = ReactiveCommand.Create(() =>
+            {
+                _modalWindowManager.ShowModalFor<SetBaudrateViewModel>();
+            });
         }
 
         public IAppConfigService AppConfigService { get; }
@@ -38,5 +43,7 @@ namespace CANShark.Desktop.ViewModels.Setup
         public ReactiveCommand<Unit, Unit> SetWireSharkFolderCmd { get; set; }
 
         public ReactiveCommand<Unit, Unit> SetPortCmd { get; set; }
+
+        public ReactiveCommand<Unit, Unit> SetBaudrateCmd { get; set; }
     }
 }

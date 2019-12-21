@@ -29,7 +29,7 @@
           </Grid>
           <Grid ColumnDefinitions="*, Auto">
             <TextBox Text="{Binding AppConfigService.Config.Baudrate}" Watermark="Baud-rate"/>
-            <Button Grid.Column="1" Classes="ToolButton" Command="{Binding $parent[Window].DataContext.ShowPortViewModel}">
+            <Button Grid.Column="1" Classes="ToolButton" Command="{Binding SetBaudrateCmd}">
               <DrawingPresenter Width="20" Height="20" Drawing="{DynamicResource VSImageLib.CollapseChevronDown_16x}"/>
             </Button>
           </Grid>

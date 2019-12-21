@@ -2,46 +2,47 @@
 using CANShark.Desktop.ViewModels.Core;
 using CANShark.Services.Configuration;
 using ReactiveUI;
-using System;
 using System.Collections.ObjectModel;
-using System.IO.Ports;
 using System.Reactive;
 
 namespace CANShark.Desktop.ViewModels.Modal
 {
-    public class SetPortViewModel : ViewModelBase
+    public class SetBaudrateViewModel : ViewModelBase
     {
         private readonly ModalWindowManager _modalWindowManager;
         private readonly IAppConfigService _appConfigService;
 
-        public SetPortViewModel(
+        public SetBaudrateViewModel(
             ModalWindowManager modalWindowManager,
             IAppConfigService appConfigService)
         {
             _modalWindowManager = modalWindowManager;
             _appConfigService = appConfigService;
 
-            RefreshPortList = ReactiveCommand.Create(() =>
+            BaudrateList = new ObservableCollection<string>
             {
-                PortList?.Clear();
-                PortList = new ObservableCollection<string>(SerialPort.GetPortNames());
-            });
+                "10",
+                "20",
+                "50",
+                "100",
+                "125",
+                "250",
+                "500",
+                "800",
+                "1000"
+            };
 
-            AppyPort = ReactiveCommand.Create(() =>
+            ApplyBaudrateCmd = ReactiveCommand.Create(() =>
             {
-                _appConfigService.Config.Port = SelectedPort;
+                _appConfigService.Config.Baudrate = SelectedBaudrate;
                 MessageBus.Current.SendMessage<ModalActions>(ModalActions.Close);
             });
-
-            RefreshPortList.Execute().Subscribe();
         }
 
-        public string SelectedPort { get; set; }
+        public string SelectedBaudrate { get; set; }
 
-        public ObservableCollection<string> PortList { get; set; }
+        public ObservableCollection<string> BaudrateList { get; set; }
 
-        public ReactiveCommand<Unit, Unit> RefreshPortList { get; set; }
-
-        public ReactiveCommand<Unit, Unit> AppyPort { get; set; }
+        public ReactiveCommand<Unit, Unit> ApplyBaudrateCmd { get; set; }
     }
 }
